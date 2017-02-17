@@ -5,7 +5,16 @@ package party.infoo.spring.IOC;
  */
 public class Work {
     private People people;
-    public void doWork(){
-        System.out.println(people.getName()+" doWork!");
+
+    public void doWork() {
+        people.doWork();
+    }
+
+    public People getPeople() {
+        return people;
+    }
+
+    public void setPeople(People people) {
+        this.people = people;
     }
 }

@@ -224,7 +224,7 @@
     <bean id="man3" class="party.infoo.entity.Man">
         <property name="dog" ref="dog"></property>
     </bean>
-    <bean id="man4" class="party.infoo.entity.Man" scope="prototype">
+    <bean id="man4" class="party.infoo.entity.Man">
         <property name="dog" ref="dog"></property>
     </bean>
 </beans>

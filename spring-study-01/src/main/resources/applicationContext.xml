@@ -3,4 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--testSpringHelloWorldSayHello() 配置-->
+    <bean id="helloWorld" class="party.infoo.spring.HelloWorld">
+        <property name="name" value="world"></property>
+    </bean>
+
+    <bean id="helloWorld2" class="party.infoo.spring.HelloWorld">
+        <property name="name">
+            <value>world2</value>
+        </property>
+    </bean>
 </beans>

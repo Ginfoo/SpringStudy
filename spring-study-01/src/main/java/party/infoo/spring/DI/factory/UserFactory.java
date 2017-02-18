@@ -1,6 +1,6 @@
-package party.infoo.factory;
+package party.infoo.spring.DI.factory;
 
-import party.infoo.entity.User;
+import party.infoo.spring.DI.entity.User;
 
 /**
  * Created by infoo on 2017/2/18.

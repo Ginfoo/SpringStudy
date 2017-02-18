@@ -3,6 +3,7 @@ package party.infoo.spring;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import party.infoo.spring.HelloWorld.HelloWorld;
 
 /**
  * Created by infoo on 2017/2/18.
@@ -24,7 +25,7 @@ public class TestHelloWorld {
     @Test
     public void testSpringHelloworldSayHello(){
         //查看spring配置
-        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("HelloWorld.xml");
 
         HelloWorld helloWorld=(HelloWorld)applicationContext.getBean("helloWorld");//通过id 获取对象
         helloWorld.sayHello();

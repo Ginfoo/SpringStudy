@@ -1,4 +1,4 @@
-package party.infoo.spring;
+package party.infoo.spring.HelloWorld;
 
 /**
  * Created by infoo on 2017/2/18.

@@ -1,9 +1,9 @@
-package party.infoo.entity;
+package party.infoo.spring.DI.entity;
 
 /**
  * Created by infoo on 2017/2/18.
  */
-public class Cat {
+public class Dog {
     private String name;
     private int age;
 
@@ -25,7 +25,7 @@ public class Cat {
 
     @Override
     public String toString() {
-        return "Cat{" +
+        return "Dog{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';

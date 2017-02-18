@@ -1,57 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lang="http://www.springframework.org/schema/lang"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd"
->
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+        default-autowire="default">
+    <!--注入方法的学习-->
 
-    <!--testSpringHelloWorldSayHello() 配置-->
-    <bean id="helloWorld" class="party.infoo.spring.HelloWorld">
-        <property name="name" value="world"></property>
-    </bean>
-
-    <bean id="helloWorld2" class="party.infoo.spring.HelloWorld">
-        <property name="name">
-            <value>world2</value>
-        </property>
-    </bean>
-
-    <!--testSpringIOC()配置-->
-    <bean id="zhangSan" class="party.infoo.spring.IOC.ZhangSan"></bean>
-    <bean id="zhangSi" class="party.infoo.spring.IOC.ZhangSi"></bean>
-
-    <bean id="work" class="party.infoo.spring.IOC.Work">
-        <property name="people">
-            <ref bean="zhangSan"></ref>
-        </property>
-    </bean>
-    <bean id="work2" class="party.infoo.spring.IOC.Work">
-        <property name="people" ref="zhangSi">
-        </property>
-    </bean>
-    <!--testSpringIOCUser()配置-->
     <!--属性注入-->
-    <bean id="user" class="party.infoo.entity.User">
+    <bean id="user" class="party.infoo.spring.DI.entity.User">
         <property name="userId" value="1"/>
         <property name="userName" value="王五"/>
         <property name="userPass" value="123456"/>
         <property name="userAge" value="20"/>
     </bean>
     <!--构造函数 类型 注入-->
-    <bean id="user2" class="party.infoo.entity.User">
+    <bean id="user2" class="party.infoo.spring.DI.entity.User">
         <constructor-arg type="long" value="1"></constructor-arg>
         <constructor-arg type="java.lang.String" value="WangmingType"></constructor-arg>
         <constructor-arg type="java.lang.String" value="123456"></constructor-arg>
         <constructor-arg type="int" value="20"></constructor-arg>
     </bean>
     <!--构造函数 索引 注入-->
-    <bean id="user3" class="party.infoo.entity.User">
+    <bean id="user3" class="party.infoo.spring.DI.entity.User">
         <constructor-arg index="0" value="1"></constructor-arg>
         <constructor-arg index="1" value="WangmingIndex"></constructor-arg>
         <constructor-arg index="2" value="123456"></constructor-arg>
         <constructor-arg index="3" value="20"></constructor-arg>
     </bean>
     <!--构造函数 索引类型联合 注入-->
-    <bean id="user4" class="party.infoo.entity.User">
+    <bean id="user4" class="party.infoo.spring.DI.entity.User">
         <constructor-arg index="0" type="long" value="1"></constructor-arg>
         <constructor-arg index="1" type="java.lang.String" value="WangmingIndexAndType"></constructor-arg>
         <constructor-arg index="2" type="java.lang.String" value="123456"></constructor-arg>
@@ -59,36 +36,51 @@
     </bean>
 
     <!--工厂注入 非静态方法-->
-    <bean id="userFactory" class="party.infoo.factory.UserFactory"></bean>
+    <bean id="userFactory" class="party.infoo.spring.DI.factory.UserFactory"></bean>
     <bean id="user5" factory-bean="userFactory" factory-method="createUser"></bean>
 
     <!--工厂注入 静态方法-->
-    <bean id="user6" class="party.infoo.factory.UserFactory" factory-method="createUserStatic"></bean>
+    <bean id="user6" class="party.infoo.spring.DI.factory.UserFactory" factory-method="createUserStatic"></bean>
+
+
+
+
+
 
 
     <!--基本类型注入-->
-    <bean id="tiger" class="party.infoo.entity.Tiger">
+    <bean id="tiger" class="party.infoo.spring.DI.entity.Tiger">
         <property name="name" value="Tiger_AA"/>
         <property name="age" value="3"/>
     </bean>
-    <bean id="cat" class="party.infoo.entity.Cat">
+
+
+    <bean id="cat" class="party.infoo.spring.DI.entity.Cat">
         <property name="name" value="Cat_AA"/>
         <property name="age" value="2"/>
     </bean>
-    <bean id="dog" class="party.infoo.entity.Dog" scope="prototype">
+
+
+    <bean id="dog" class="party.infoo.spring.DI.entity.Dog" scope="prototype">
         <property name="name" value="Dod_AA"/>
         <property name="age" value="5"/>
     </bean>
-    <bean id="dog1" class="party.infoo.entity.Dog">
+
+
+    <bean id="dog1" class="party.infoo.spring.DI.entity.Dog">
         <property name="name" value="Dod_CC"/>
         <property name="age" value="5"/>
     </bean>
-    <bean id="panda" class="party.infoo.entity.Panda">
+
+
+    <bean id="panda" class="party.infoo.spring.DI.entity.Panda">
         <property name="name" value="Panda_A"/>
         <property name="age" value="3"/>
     </bean>
+
+
     <!--参数注入方法介绍-->
-    <bean id="people" class="party.infoo.entity.People">
+    <bean id="people" class="party.infoo.spring.DI.entity.People">
         <!--基本类型注入-->
         <property name="name" value="People_AA"/>
 
@@ -100,7 +92,7 @@
 
         <!--内部bean注入-->
         <property name="tiger">
-            <bean class="party.infoo.entity.Tiger">
+            <bean class="party.infoo.spring.DI.entity.Tiger">
                 <property name="name" value="Tiger_BB"/>
                 <property name="age" value="10"/>
             </bean>
@@ -118,6 +110,7 @@
                 <value>ENGLISH</value>
             </list>
         </property>
+
         <!--set-->
         <property name="hobbies">
             <set>
@@ -125,6 +118,7 @@
                 <value>玩游戏</value>
             </set>
         </property>
+
         <!--map-->
         <property name="works">
             <map>
@@ -152,11 +146,12 @@
     </bean>
 
 
-    <bean id="people2" class="party.infoo.entity.People">
+    <bean id="people2" class="party.infoo.spring.DI.entity.People">
         <!--基本类型注入-->
         <property name="name" value="People_AA"/>
 
         <!--bean注入-->
+        <!--测试   default-autowire   -->
         <!--<property name="dog" ref="dog"/>-->
 
         <!--级联属性注入《要求已经new过的》-->
@@ -164,7 +159,7 @@
 
         <!--内部bean注入-->
         <property name="tiger">
-            <bean class="party.infoo.entity.Tiger">
+            <bean class="party.infoo.spring.DI.entity.Tiger">
                 <property name="name" value="Tiger_BB"/>
                 <property name="age" value="10"/>
             </bean>
@@ -215,16 +210,4 @@
         </property>
     </bean>
 
-    <bean id="man1" class="party.infoo.entity.Man">
-        <lookup-method name="getDog" bean="dog"></lookup-method>
-    </bean>
-    <bean id="man2" class="party.infoo.entity.Man">
-        <lookup-method name="getDog" bean="dog"></lookup-method>
-    </bean>
-    <bean id="man3" class="party.infoo.entity.Man">
-        <property name="dog" ref="dog"></property>
-    </bean>
-    <bean id="man4" class="party.infoo.entity.Man">
-        <property name="dog" ref="dog"></property>
-    </bean>
 </beans>

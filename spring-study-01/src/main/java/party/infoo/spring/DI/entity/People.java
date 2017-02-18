@@ -1,4 +1,4 @@
-package party.infoo.entity;
+package party.infoo.spring.DI.entity;
 
 import java.util.*;
 

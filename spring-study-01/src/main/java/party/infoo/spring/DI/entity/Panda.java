@@ -1,4 +1,4 @@
-package party.infoo.entity;
+package party.infoo.spring.DI.entity;
 
 /**
  * Created by infoo on 2017/2/18.

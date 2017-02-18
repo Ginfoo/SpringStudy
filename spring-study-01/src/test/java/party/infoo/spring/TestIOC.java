@@ -1,13 +1,12 @@
 package party.infoo.spring;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import party.infoo.entity.Man;
-import party.infoo.entity.People;
-import party.infoo.entity.User;
+import party.infoo.spring.DI.entity.Man;
+import party.infoo.spring.DI.entity.People;
+import party.infoo.spring.DI.entity.User;
 import party.infoo.spring.IOC.Work;
 import party.infoo.spring.IOC.ZhangSan;
 import party.infoo.spring.IOC.ZhangSi;
@@ -21,7 +20,7 @@ public class TestIOC {
     @Before
     public void before() {
         if (applicationContext == null) {
-            applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+            applicationContext = new ClassPathXmlApplicationContext("IOC.xml");
         }
     }
 
@@ -49,58 +48,11 @@ public class TestIOC {
     public void testSpringIOC() {
         /**
          * 使用Spring的IOC
-         * 查看spring配置
+         * 查看spring配置,让谁做工作直接在Spring配置文件配置即可
          * 将控制权交给了Spring 管理；又称依赖注入
          */
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-
         Work work = (Work) applicationContext.getBean("work");
         work.doWork();
 
-        Work work2 = (Work) applicationContext.getBean("work2");
-        work2.doWork();
-    }
-
-    @Test
-    public void testSpringIOCUser() {
-        System.out.println("==================================");
-        User user = (User) applicationContext.getBean("user");
-        user.toSout();
-        System.out.println("==================================");
-        User user2 = (User) applicationContext.getBean("user2");
-        user2.toSout();
-        System.out.println("==================================");
-        User user3 = (User) applicationContext.getBean("user3");
-        user3.toSout();
-        System.out.println("==================================");
-        User user4 = (User) applicationContext.getBean("user4");
-        user4.toSout();
-        System.out.println("==================================");
-        User user5 = (User) applicationContext.getBean("user5");
-        user5.toSout();
-        System.out.println("==================================");
-        User user6 = (User) applicationContext.getBean("user6");
-        user6.toSout();
-    }
-
-    @Test
-    public void testPeople(){
-        System.out.println("==================================");
-        People people = (People) applicationContext.getBean("people2");
-        System.out.println(people);
-    }
-    @Test
-    public void testMan(){
-        Man man1 = (Man) applicationContext.getBean("man1");
-        Man man2 = (Man) applicationContext.getBean("man2");
-        System.out.println(man1==man2);
-        System.out.println(man1.getDog()==man1.getDog());
-        System.out.println(man1.getDog()==man2.getDog());
-        Man man3 = (Man) applicationContext.getBean("man3");
-        Man man4 = (Man) applicationContext.getBean("man4");
-        Man man5 = (Man) applicationContext.getBean("man3");
-        System.out.println(man3==man4);
-        System.out.println(man3.getDog()==man4.getDog());
-        System.out.println(man3.getDog()==man5.getDog());
     }
 }

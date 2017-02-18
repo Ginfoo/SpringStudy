@@ -15,7 +15,7 @@ public class BankDaoImpl implements BankDao {
 
     @Override
     public void inMoney(int money, int userId) {
-        String sql = "update t_bank1 b set b.userAccount=b.userAccount+:money where b.userId=:userId";
+        String sql = "update t_bank b set b.userAccount=b.userAccount+:money where b.userId=:userId";
         MapSqlParameterSource sps = new MapSqlParameterSource();
         sps.addValue("money", money);
         sps.addValue("userId", userId);

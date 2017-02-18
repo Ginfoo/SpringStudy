@@ -14,7 +14,7 @@ public class TestTX {
     @Before
     public void getApplicationContext() {
         if (applicationContext == null) {
-            applicationContext = new ClassPathXmlApplicationContext("TX.xml");
+            applicationContext = new ClassPathXmlApplicationContext("TXxml.xml");
         }
     }
     @Test

@@ -3,25 +3,31 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop.xsd
-       ">
-
-    <bean id="userAdvice" class="party.infoo.spring.AOP.UserAdvice"></bean>
-    <bean id="userService" class="party.infoo.spring.AOP.service.UserServiceImpl"></bean>
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="userAdvice"
+          class="party.infoo.spring.AOP.UserAdvice"></bean>
+    <bean id="userService"
+          class="party.infoo.spring.AOP.service.UserServiceImpl"></bean>
 
     <aop:config>
         <!--配置切面-->
-        <aop:aspect id="userAdviceAspect" ref="userAdvice">
+        <aop:aspect id="userAdviceAspect"
+                    ref="userAdvice">
             <!--配置切点 第一个*表示返回类型任意 * 代表任意 （..）代表方法参数任意-->
-            <aop:pointcut id="userServicePointCut" expression="execution(* party.infoo.spring.AOP.service.*.*(..))"></aop:pointcut>
-             <!--配置切点的方法-->
-            <aop:before method="doBefore" pointcut-ref="userServicePointCut"></aop:before>
-            <aop:after method="doAfter" pointcut-ref="userServicePointCut"></aop:after>
-            <aop:around method="doAround" pointcut-ref="userServicePointCut"></aop:around>
-            <aop:after-returning method="doAfterReturning" pointcut-ref="userServicePointCut"/>
-            <aop:after-throwing method="doAfterThrowing" pointcut-ref="userServicePointCut" throwing="ex"/>
+            <aop:pointcut id="userServicePointCut"
+                          expression="execution(* party.infoo.spring.AOP.service.*.*(..))"></aop:pointcut>
+            <!--配置切点的方法-->
+            <aop:before method="doBefore"
+                        pointcut-ref="userServicePointCut"></aop:before>
+            <aop:after method="doAfter"
+                       pointcut-ref="userServicePointCut"></aop:after>
+            <aop:around method="doAround"
+                        pointcut-ref="userServicePointCut"></aop:around>
+            <aop:after-returning method="doAfterReturning"
+                                 pointcut-ref="userServicePointCut"/>
+            <aop:after-throwing method="doAfterThrowing"
+                                pointcut-ref="userServicePointCut"
+                                throwing="ex"/>
         </aop:aspect>
     </aop:config>
 

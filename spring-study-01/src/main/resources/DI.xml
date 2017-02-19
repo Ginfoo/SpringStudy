@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd"
-        default-autowire="default">
+       default-autowire="default">
     <!--注入方法的学习-->
 
     <!--属性注入-->
@@ -41,11 +41,6 @@
 
     <!--工厂注入 静态方法-->
     <bean id="user6" class="party.infoo.spring.DI.factory.UserFactory" factory-method="createUserStatic"></bean>
-
-
-
-
-
 
 
     <!--基本类型注入-->

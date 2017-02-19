@@ -30,7 +30,7 @@ public class UserAdvice {
 
     public Object doAround(ProceedingJoinPoint proceedingJoinPoint) {
         System.out.println("**********************************");
-        Object retVal=null;
+        Object retVal = null;
         try {
             proceedingJoinPoint.proceed();
         } catch (Throwable throwable) {
@@ -39,13 +39,15 @@ public class UserAdvice {
         System.out.println("**********************************");
         return retVal;
     }
-   public void doAfterReturning(){
-       System.out.println("返回通知");
-   }
-   public void doAfterThrowing(JoinPoint jp,Throwable ex){
-       System.out.println("异常通知！！！！！！！！！！！！！！");
-       System.out.println(ex.getMessage());
-       System.out.println("异常通知！！！！！！！！！！！！！！");
-   }
+
+    public void doAfterReturning() {
+        System.out.println("返回通知");
+    }
+
+    public void doAfterThrowing(JoinPoint jp, Throwable ex) {
+        System.out.println("异常通知！！！！！！！！！！！！！！");
+        System.out.println(ex.getMessage());
+        System.out.println("异常通知！！！！！！！！！！！！！！");
+    }
 
 }
